@@ -80,7 +80,7 @@ export const PaymentPage = () => {
 
     const fetchClientSecret = async () => {
       try {
-        const response = await fetch('http://localhost:8000/payment/create-payment/', {
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'https://aurene.onrender.com/api'}/payment/create-payment/`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
