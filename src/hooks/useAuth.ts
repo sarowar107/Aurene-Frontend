@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { useAuthStore } from '../store/authStore';
 import { useUIStore } from '../store/uiStore';
 
-const API_URL = 'http://127.0.0.1:8000/api';
+const API_URL = import.meta.env.VITE_API_BASE_URL || 'https://aurene.onrender.com/api';
+
 
 export const useAuth = () => {
   const [isLoading, setIsLoading] = useState(false);
