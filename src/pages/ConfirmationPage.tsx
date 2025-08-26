@@ -8,7 +8,15 @@ export const ConfirmationPage = () => {
   const { clearCart } = useCartStore();
 
   useEffect(() => {
-    clearCart();
+    // Get the payment intent status from the URL
+    const queryParams = new URLSearchParams(window.location.search);
+    const paymentIntent = queryParams.get('payment_intent');
+    const paymentIntentClientSecret = queryParams.get('payment_intent_client_secret');
+
+    if (paymentIntent) {
+      // Clear the cart only if payment was successful
+      clearCart();
+    }
   }, [clearCart]);
   return (
     <motion.div
@@ -24,7 +32,7 @@ export const ConfirmationPage = () => {
           Thank you for your purchase. Your order is being processed and will be on its way shortly.
         </p>
         <Link
-          to="/"
+          to="https://aurene.netlify.app"
           className="mt-8 inline-block bg-brand-primary text-white py-3 px-8 rounded-full font-semibold hover:bg-brand-primary/90 transition-colors"
         >
           Continue Shopping

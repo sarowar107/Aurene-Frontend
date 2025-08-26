@@ -33,7 +33,7 @@ const PaymentForm = ({ clientSecret, totalAmount }: { clientSecret: string, tota
       elements,
       confirmParams: {
         // Return URL after payment is complete. Change to your confirmation page.
-        return_url: `${window.location.origin}/confirmation`,
+        return_url: 'https://aurene.netlify.app/confirmation',
       },
     });
 
